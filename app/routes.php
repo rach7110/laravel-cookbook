@@ -19,3 +19,7 @@ Route::get('/', function()
 Route::get('userform', function(){
   return View::make('userform');
 });
+
+Route::post('submit', function(){
+  return View::make('submit');
+});
