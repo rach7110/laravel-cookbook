@@ -6,6 +6,8 @@
   <body>
     <h3>Testing the Blade layout ability in Laravel</h3>
     @yield('content')
+    <div class="footer">
+    </div>
   </body>
 
 </html>
