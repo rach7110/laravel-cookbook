@@ -20,18 +20,31 @@ Route::get('userform', function(){
   return View::make('userform');
 });
 
+// Sets field requirements & validates POST input data:
 Route::post('userform', function(){
-  return Redirect::to('userresults') -> withInput(Input::only('username', 'icecream'));
-  // return Redirect::to('form')->withInput(Input::except('password'));
+
+  $rules = array(
+    'email' => 'required|email|different:username',
+    'username' => 'required|min:6',
+    'password' => 'required|same:password_confirm'
+  );
+
+  $validation = Validator::make(Input::all(), $rules);
+  if ($validation->fails()){
+    return Redirect::to('userform')->withErrors($validation)->withInput;
+  } 
+  return Redirect::to('userresults') -> withInput();
 });
 
+// A route to handle a successful form submission:
 Route::get('userresults', function(){
-  $likes_icecream = Input::old('icecream');
-  if ($likes_icecream == true) {
-    $answer = 'you like ice cream!';
-    echo '<br/>';
-  } else {
-    $answer = 'you do not like ICE CREAM??';
-  };
-  return 'Your username is ' . Input::old('username') . ', and ' . $answer;
+  return dd(Input::old());
+  // $likes_icecream = Input::old('icecream');
+  // if ($likes_icecream == true) {
+  //   $answer = 'you like ice cream!';
+  //   echo '<br/>';
+  // } else {
+  //   $answer = 'you do not like ICE CREAM??';
+  // };
+  // return 'Your username is ' . Input::old('username') . ', and ' . $answer;
 });
