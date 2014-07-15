@@ -1,4 +1,14 @@
 
-h3 {
-  color: red;
+
+body {
+  background: url('/images/photography.png');
+  padding-top: 1em;
+  padding-left: 1em;
 }
+
+h3, a:link, a:visited, input {
+  color: #19763e;
+  text-decoration: none;
+}
+
+
