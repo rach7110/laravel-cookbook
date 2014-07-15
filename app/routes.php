@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', function() {
+  return Redirect::to('/userform');
+
+	// return View::make('hello');
 });
 
 Route::get('userform', function(){
