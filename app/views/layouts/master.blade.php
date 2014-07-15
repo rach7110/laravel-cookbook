@@ -4,7 +4,7 @@
   </head>
 
   <body>
-    Testing the Blade layout ability in Laravel
+    <h3>Testing the Blade layout ability in Laravel</h3>
     @yield('content')
   </body>
 

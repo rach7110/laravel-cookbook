@@ -20,6 +20,6 @@ Route::get('userform', function(){
   return View::make('userform');
 });
 
-Route::post('submit', function(){
+Route::any('submit', function(){
   return View::make('submit');
 });
