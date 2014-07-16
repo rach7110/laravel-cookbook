@@ -40,9 +40,9 @@ Route::get('userresults', function(){
 });
 
 // CONTAINS A FORM - FILE UPLOAD:
-Route::get('fileform', function{
+Route::get('fileform', function(){
   return View::make('fileform');
-})
+});
 
 // POSTS FORM INPUT - FILES:
 // Saves file with a different filename.
