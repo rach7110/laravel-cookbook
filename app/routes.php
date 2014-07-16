@@ -30,13 +30,14 @@ Route::post('userform', function(){
   );
   $validation = Validator::make(Input::all(), $rules);
   if ($validation->fails()){
-    return Redirect::to('userform')->withErrors($validation)->withInput;
+    return Redirect::to('userform')->withErrors($validation)->withInput();
   } 
   return Redirect::to('userresults') -> withInput();
 });
 
 // HANDLES SUCCESSFUL FORM SUBMISSION:
 Route::get('userresults', function(){
+  return "Good job!";
 });
 
 // CONTAINS A FORM - FILE UPLOAD:
@@ -46,7 +47,7 @@ Route::get('fileform', function(){
 
 // POSTS FORM INPUT - FILES:
 // Saves file with a different filename.
-Route::post('fileform', function{
+Route::post('fileform', function(){
   $file = Input::file('myfile');
   $ext = $file->guessExtension();
   if ($file->move('files', 'newfilename.' . $ext)) {
