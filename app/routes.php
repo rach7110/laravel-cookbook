@@ -21,7 +21,7 @@ Route::get('userform', function(){
   return View::make('userform');
 });
 
-// SETS POSTED FORM FIELD REQ'S & VALIDATATES RULES PASSED:
+// POSTS FORM INPUTS W/ REQ'S & VALIDATATES RULES PASSED:
 Route::post('userform', function(){
   $rules = array(
     'email' => 'required|email|different:username',
@@ -43,3 +43,15 @@ Route::get('userresults', function(){
 Route::get('fileform', function{
   return View::make('fileform');
 })
+
+// POSTS FORM INPUT - FILES:
+// Saves file with a different filename.
+Route::post('fileform', function{
+  $file = Input::file('myfile');
+  $ext = $file->guessExtension();
+  if ($file->move('files', 'newfilename.' . $ext)) {
+    return 'Success';
+  } else {
+    return 'Error';
+  }
+});
