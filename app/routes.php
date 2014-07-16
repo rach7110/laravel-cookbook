@@ -16,19 +16,18 @@ Route::get('/', function() {
 	// return View::make('hello');
 });
 
+// CONTAINS A FORM - USER REGISTRATION:
 Route::get('userform', function(){
   return View::make('userform');
 });
 
-// Sets field requirements & validates POST input data:
+// SETS POSTED FORM FIELD REQ'S & VALIDATATES RULES PASSED:
 Route::post('userform', function(){
-
   $rules = array(
     'email' => 'required|email|different:username',
     'username' => 'required|min:6',
     'password' => 'required|same:password_confirm'
   );
-
   $validation = Validator::make(Input::all(), $rules);
   if ($validation->fails()){
     return Redirect::to('userform')->withErrors($validation)->withInput;
@@ -36,15 +35,11 @@ Route::post('userform', function(){
   return Redirect::to('userresults') -> withInput();
 });
 
-// A route to handle a successful form submission:
+// HANDLES SUCCESSFUL FORM SUBMISSION:
 Route::get('userresults', function(){
-  return dd(Input::old());
-  // $likes_icecream = Input::old('icecream');
-  // if ($likes_icecream == true) {
-  //   $answer = 'you like ice cream!';
-  //   echo '<br/>';
-  // } else {
-  //   $answer = 'you do not like ICE CREAM??';
-  // };
-  // return 'Your username is ' . Input::old('username') . ', and ' . $answer;
 });
+
+// CONTAINS A FORM - FILE UPLOAD:
+Route::get('fileform', function{
+  return View::make('fileform');
+})
