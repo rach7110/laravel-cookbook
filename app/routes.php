@@ -21,7 +21,7 @@ Route::get('userform', function(){
   return View::make('userform');
 });
 
-// POSTS FORM INPUTS W/ REQ'S & VALIDATATES RULES PASSED:
+// POSTS FORM INPUTS; VALIDATATES RULES PASSED:
 Route::post('userform', function(){
   $rules = array(
     'email' => 'required|email|different:username',
@@ -29,9 +29,16 @@ Route::post('userform', function(){
     'password' => 'required|same:password_confirm'
   );
 
+  $messages = array(
+    'min' => 'Too short. Please pick an :attribute that is at least :min characters.',
+    'username.required' => 'This field must be completed.',
+    'password.required' => 'This field must be completed.',
+    'same'=> 'Passwords must match.',
+    )
+
   // VALIDATION:  
   // Validator class (ships with Laravel) - the first argument passed to the make method is the data under validation. The second argument contains the validation rules that should be applied to the data.
-  $validation = Validator::make(Input::all(), $rules);
+  $validation = Validator::make(Input::all(), $rules, $messages);
   if ($validation->fails()){
     return Redirect::to('userform')->withErrors($validation)->withInput();
   } 
