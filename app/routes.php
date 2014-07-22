@@ -30,11 +30,12 @@ Route::post('userform', function(){
   );
 
   $messages = array(
-    'min' => 'Too short. Please pick an :attribute that is at least :min characters.',
+    'min' => 'Too short. Please pick a :attribute that is at least :min characters.',
     'username.required' => 'This field must be completed.',
     'password.required' => 'This field must be completed.',
     'same'=> 'Passwords must match.',
-    )
+    'email.different' => 'Email must be different from username.'
+    );
 
   // VALIDATION:  
   // Validator class (ships with Laravel) - the first argument passed to the make method is the data under validation. The second argument contains the validation rules that should be applied to the data.
