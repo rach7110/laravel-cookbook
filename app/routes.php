@@ -50,7 +50,7 @@ Route::post('userform', function(){
 
 // HANDLES SUCCESSFUL FORM SUBMISSION:
 Route::get('userresults', function(){
-  return "Good job!";
+  return dd(Input::old());
 });
 
 // CONTAINS A FORM - FILE UPLOAD:
