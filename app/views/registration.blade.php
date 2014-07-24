@@ -12,27 +12,23 @@ style="color:red">:message</p>') ?>
 <!-- Use Input::old to repopulate fields -->
 <?= Form::open() ?>
   
-  <?= Form::label('username', "Pick your username:") ?>
-  <?= Form::text('username', Input::old('username')) ?>
+  <?= Form::label('email', 'Email:') ?>
+  <?= Form::email('email', Input::old('email')) ?>
   <br/>
   
-  <?= Form::label('password', 'Pick your password:') ?>
+  <?= Form::label('password', 'Password:') ?>
   <?= Form::password('password') ?>
   <br/>
+
   <?= Form::label('password_confirm', 'Retype your password:') ?>
   <?= Form::password('password_confirm') ?>
   <br/>
 
-  <?= Form::label('email', 'Email:') ?>
-  <?= Form::email('email', Input::old('email')) ?>
-  <br/>
-
-  <?= Form::label('icecream', "Do you like ice cream?") ?>
-  <?= Form::checkbox('icecream') ?>
+  <?= Form::label('adimn', 'Admin: ') ?>
+  <?= form::checkbox('admin', 'true', Input::old('admin')) ?>
   <br/>
   
-  <?= Form::submit('Create') ?>
-
+  <?= Form::submit('Register') ?>
 
 <?= Form::close() ?>
 @stop
