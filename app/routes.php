@@ -23,10 +23,10 @@ Route::get('registration', function(){
 
 // 
 // *****************************************************************************
-// POSTS FORM INPUTS; VALIDATATES RULES PASSED:
+// POSTS REGISTRATION; VALIDATATES RULES PASSED:
 Route::post('registration', function(){
   $rules = array(
-    'email' => 'required|email|different:username',
+    'email' => 'required|email|unique:users',
     'password' => 'required|same:password_confirm',   
     'name' => 'required',
   );
@@ -56,8 +56,20 @@ Route::post('registration', function(){
 // *****************************************************************************
 // LOGIN PAGE:
 Route::get('login', function(){
-  $title = 'Login';
   return View::make('login');
+});
+
+// POST LOGIN:
+Route::post('login', function() {
+  $user = array(
+    'username' => Input::get('email'),
+    'password' => Input::get('password')
+    );
+
+  if (Auth::attempt($user)) {
+    return Redirect::to('profile');
+  } 
+  return Redirect::to('login')->with ('login_error', 'Could not log in.');
 });
 
 // PROFILE PAGE:
@@ -65,11 +77,14 @@ Route::get('profile', function(){
   if(Auth::check()) {
     return "You have been authorized!";  
   } else {
-    return Redirect::to('login');
-  }
-
-  
+    return 'Please <a href="login">Login</a>';
+  }  
 });
+
+//  A SECURED PAGE:
+Route::get('secured', array('before' => 'auth', function()
+{ return 'This is a secured page!';
+}));
 
 // CONTAINS A FORM - FILE UPLOAD:
 Route::get('fileform', function(){
@@ -80,6 +95,7 @@ Route::get('fileform', function(){
 // Saves file with a different filename.
 // Move the file to its permanent location using the file's move() method, with the first parameter being the directory where we will save the file; the second is the new name of the file.
 Route::post('fileform', function(){
+
   $rules = array(
     'myfile' => 'mimes:doc, pdf, jpg|max: 1000',
     'myfile' => 'image'

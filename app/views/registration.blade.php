@@ -10,25 +10,32 @@ style="color:red">:message</p>') ?>
 
 <!-- CREATE A FORM: -->
 <!-- Use Input::old to repopulate fields -->
-<?= Form::open() ?>
-  
-  <?= Form::label('email', 'Email:') ?>
-  <?= Form::email('email', Input::old('email')) ?>
-  <br/>
-  
-  <?= Form::label('password', 'Password:') ?>
-  <?= Form::password('password') ?>
-  <br/>
+<div class="form">
+  <?= Form::open() ?>
 
-  <?= Form::label('password_confirm', 'Retype your password:') ?>
-  <?= Form::password('password_confirm') ?>
-  <br/>
+    <?= Form::label('name', 'Name:') ?>
+    <?= Form::text('name')?>
+    <br/>
+    
+    <?= Form::label('email', 'Email:') ?>
+    <?= Form::email('email', Input::old('email')) ?>
+    <br/>
+    
+    <?= Form::label('password', 'Password:') ?>
+    <?= Form::password('password') ?>
+    <br/>
 
-  <?= Form::label('adimn', 'Admin: ') ?>
-  <?= form::checkbox('admin', 'true', Input::old('admin')) ?>
-  <br/>
-  
-  <?= Form::submit('Register') ?>
+    <?= Form::label('password_confirm', 'Retype your password:') ?>
+    <?= Form::password('password_confirm') ?>
+    <br/>
 
-<?= Form::close() ?>
+    <?= Form::label('adimn', 'Admin: ') ?>
+    <?= form::checkbox('admin', 'true', Input::old('admin')) ?>
+    <br/>
+    <br/>
+    
+    <?= Form::submit('Register') ?>
+
+  <?= Form::close() ?>
+</div>
 @stop

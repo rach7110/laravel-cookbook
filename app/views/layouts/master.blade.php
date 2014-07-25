@@ -11,10 +11,11 @@
 
       <div class="navbar">
         <div class="row clearfix">
-          <div class="column fourth nav-btn"><a href="/">Home</a></div>
-          <div class="column fourth nav-btn"><a href="/registration">Sign up</a></div>
-          <div class="column fourth nav-btn"><a href="login">Login</a></div>
-          <div class="column fourth nav-btn"><a href="fileform">File Upload</a></div>
+          <div class="column fifth nav-btn"><a href="/">Home</a></div>
+          <div class="column fifth nav-btn"><a href="/registration">Sign up</a></div>
+          <div class="column fifth nav-btn"><a href="login">Login</a></div>
+          <div class="column fifth nav-btn"><a href="profile">Profile</a></div>
+          <div class="column fifth nav-btn"><a href="fileform">File Upload</a></div>
         </div>
       </div>
 

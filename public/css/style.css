@@ -12,6 +12,14 @@
   width: 90%;
 }
 
+.form{
+  text-align: left;
+  max-width: 24em;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
 body {
   background: url('/images/photography.png');
   font-family:'Lato', sans-serif;
@@ -21,6 +29,8 @@ body {
   text-align:center;
   color: #999;
 }
+
+/*div { border: gray 1px dashed;}*/
 
 h1 {
   font-size: 32px;
@@ -48,6 +58,7 @@ h3, a:link, a:visited, input {
   .column.half { width: 50%; }
   .column.third { width: 33.3%; }
   .column.fourth { width: 25%; }
+  .column.fifth { width: 20%; }
   .column.flow-opposite { float: right; } 
 }
 
