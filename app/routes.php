@@ -24,7 +24,6 @@ Route::get('registration', function(){
 // 
 // *****************************************************************************
 // POSTS FORM INPUTS; VALIDATATES RULES PASSED:
-// START 
 Route::post('registration', function(){
   $rules = array(
     'email' => 'required|email|different:username',
@@ -55,10 +54,20 @@ Route::post('registration', function(){
 });
 // END POST ROUTE
 // *****************************************************************************
+// LOGIN PAGE:
+Route::get('login', function(){
+  return View::make('login');
+});
 
-// HANDLES SUCCESSFUL FORM SUBMISSION:
-Route::get('userresults', function(){
-  return dd(Input::old());
+// PROFILE PAGE:
+Route::get('profile', function(){
+  if(Auth::check()) {
+    return "You have been authorized!";  
+  } else {
+    return Redirect::('login');
+  }
+
+  
 });
 
 // CONTAINS A FORM - FILE UPLOAD:
