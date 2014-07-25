@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function() {
-  return Redirect::to('/userform');
+  return View::make('home');
 	// return View::make('hello');
 });
 
@@ -27,7 +27,7 @@ Route::get('registration', function(){
 Route::post('registration', function(){
   $rules = array(
     'email' => 'required|email|different:username',
-    'password' => 'required|same:password_confirm'    
+    'password' => 'required|same:password_confirm',   
     'name' => 'required',
   );
   // VALIDATION:  
@@ -56,6 +56,7 @@ Route::post('registration', function(){
 // *****************************************************************************
 // LOGIN PAGE:
 Route::get('login', function(){
+  $title = 'Login';
   return View::make('login');
 });
 
@@ -64,7 +65,7 @@ Route::get('profile', function(){
   if(Auth::check()) {
     return "You have been authorized!";  
   } else {
-    return Redirect::('login');
+    return Redirect::to('login');
   }
 
   
