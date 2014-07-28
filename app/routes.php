@@ -24,7 +24,7 @@ Route::get('registration', function(){
 // 
 // *****************************************************************************
 // POSTS REGISTRATION; VALIDATATES RULES PASSED:
-Route::post('registration', function(){
+Route::post('registration',array('before' => 'csrf') function(){
   $rules = array(
     'email' => 'required|email|unique:users',
     'password' => 'required|same:password_confirm',   
