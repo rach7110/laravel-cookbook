@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-<h3>Howdy. Here is our form:</h3>
 <h2>Registration</h2>
 <!-- DISPLAY ALL ERROR MESSAGES -->
 <!-- Could check individual attributes with $errors->get('email')  -->

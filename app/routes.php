@@ -62,14 +62,20 @@ Route::get('login', function(){
 // POST LOGIN:
 Route::post('login', function() {
   $user = array(
-    'username' => Input::get('email'),
+    'email' => Input::get('email'),
     'password' => Input::get('password')
     );
-
+  // foreach($user as $key => $value) {
+  //   echo $key;
+  //   echo '<br/>';
+  //   echo $value;
+  //   echo '<br/>';
+  // }
   if (Auth::attempt($user)) {
     return Redirect::to('profile');
-  } 
+  } else {
   return Redirect::to('login')->with ('login_error', 'Could not log in.');
+  }
 });
 
 // PROFILE PAGE:
