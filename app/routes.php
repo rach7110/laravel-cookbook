@@ -100,6 +100,30 @@ Route::get('profile-edit', function() {
   }
 });
 
+Route::post('profile-edit', function() {
+  $rules = array (
+    'email' => 'required|email',
+    'password' => 'same:password_confirm',
+    'name' => 'required'
+  );
+  $validation = Validator::make(Input::all(), $rules);
+  if($validation->fails()) {
+    return Redirect::to('profile-edit') -> withErrors($validation)->withInput();
+  }
+  $user = User::find(Auth::user() -> id);
+  $user -> email = Input::get('email');
+  if (Input::get('password')) {
+    $user->password = Hash::make(Input::get('password'));
+  }
+  $user->name = Input::get('name');
+  if ($user->save()) {
+    return Redirect::to('profile') ->with('notify', 'Information updated!!');
+  } else {
+    return Redirect::to('profile-edit')->withInput();
+  }
+});
+
+
 //  A SECURED PAGE:
 Route::get('secured', array('before' => 'auth', function()
 { return 'This is a secured page!';
