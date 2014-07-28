@@ -24,7 +24,7 @@ Route::get('registration', function(){
 // 
 // *****************************************************************************
 // POSTS REGISTRATION; VALIDATATES RULES PASSED:
-Route::post('registration',array('before' => 'csrf') function(){
+Route::post('registration', array('before' => 'csrf', function(){
   $rules = array(
     'email' => 'required|email|unique:users',
     'password' => 'required|same:password_confirm',   
@@ -51,7 +51,7 @@ Route::post('registration',array('before' => 'csrf') function(){
 
   // Another way to retrieve the error messages from the validator: $messages = $validator->messages();
   // Notice that we do not have to explicitly bind the error messages to the view in our GET route. This is because Laravel will always check for errors in the session data, and automatically bind them to the view if they are available. So, it is important to note that an $errors variable will always be available in all of your views, on every request, allowing you to conveniently assume the $errors variable is always defined and can be safely used. The $errors variable will be an instance of MessageBag.
-});
+}));
 // END POST ROUTE
 // *****************************************************************************
 // LOGIN PAGE:
