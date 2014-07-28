@@ -71,6 +71,11 @@ Route::post('login', function() {
   //   echo $value;
   //   echo '<br/>';
   // }
+  // 
+
+  // if (Auth::attempt(array('email' => $email, 'password' => $password))) {
+  // return Redirect::intended('dashboard');
+  // }
   if (Auth::attempt($user)) {
     return Redirect::to('profile');
   } else {
@@ -80,11 +85,11 @@ Route::post('login', function() {
 
 // PROFILE PAGE:
 Route::get('profile', function(){
-  if(Auth::check()) {
-    return "You have been authorized!";  
+  if (Auth::check()) {
+    return View::make('profile')->with('user', Auth::user());
   } else {
-    return 'Please <a href="login">Login</a>';
-  }  
+    return Redirect::to('login')->with ('login_error', 'You must login first.');
+  }
 });
 
 //  A SECURED PAGE:
