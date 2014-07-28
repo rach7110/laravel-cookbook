@@ -92,6 +92,14 @@ Route::get('profile', function(){
   }
 });
 
+// EDIT PROFILE:
+Route::get('profile-edit', function() {
+  if (Auth::check()) {
+  $user = Input::old() ? (object) Input::old() : Auth::user();
+  return View::make('profile_edit')->with('user', $user);
+  }
+});
+
 //  A SECURED PAGE:
 Route::get('secured', array('before' => 'auth', function()
 { return 'This is a secured page!';
