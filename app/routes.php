@@ -65,14 +65,6 @@ Route::post('login', function() {
     'email' => Input::get('email'),
     'password' => Input::get('password')
     );
-  // foreach($user as $key => $value) {
-  //   echo $key;
-  //   echo '<br/>';
-  //   echo $value;
-  //   echo '<br/>';
-  // }
-  // 
-
   // if (Auth::attempt(array('email' => $email, 'password' => $password))) {
   // return Redirect::intended('dashboard');
   // }
@@ -88,7 +80,7 @@ Route::get('profile', function(){
   if (Auth::check()) {
     return View::make('profile')->with('user', Auth::user());
   } else {
-    return Redirect::to('login')->with ('login_error', 'You must login first.');
+    return Redirect::to('login')->with('login_error', 'You must login first.');
   }
 });
 
@@ -110,12 +102,13 @@ Route::post('profile-edit', function() {
   if($validation->fails()) {
     return Redirect::to('profile-edit') -> withErrors($validation)->withInput();
   }
-  $user = User::find(Auth::user() -> id);
-  $user -> email = Input::get('email');
+  $user = User::find(Auth::user()->id);
+  $user->email = Input::get('email');
+  $user->name = Input::get('name');
   if (Input::get('password')) {
     $user->password = Hash::make(Input::get('password'));
   }
-  $user->name = Input::get('name');
+
   if ($user->save()) {
     return Redirect::to('profile') ->with('notify', 'Information updated!!');
   } else {
