@@ -6,4 +6,5 @@
     </br>
     <a href="/registration">Create a User Profile</a>
 	</div>
+
 @stop
