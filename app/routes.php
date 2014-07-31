@@ -118,7 +118,12 @@ Route::post('profile-edit', function() {
 
 // LOGOUT:
 Route::get('logout', function() {
-  return Auth::logout();
+  Auth::logout();
+  if (Auth::check() == false) {
+    return View::make('logout');
+  } elseif (Auth::check() == true) {
+    echo "Problm logging you out.";
+  }
 });
 
 //  A SECURED PAGE:

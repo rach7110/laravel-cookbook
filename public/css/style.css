@@ -19,6 +19,10 @@
   margin-left: auto;
 }
 
+.logout {
+  color: blue;
+}
+
 
 body {
   background: url('/images/photography.png');
