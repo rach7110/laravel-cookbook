@@ -14,7 +14,7 @@
 Route::get('/', function() {
   return View::make('home');
 	// return View::make('hello');
-});
+})->before('auth.basic');
 
 // USER REGISTRATION FORM:
 Route::get('registration', function(){
