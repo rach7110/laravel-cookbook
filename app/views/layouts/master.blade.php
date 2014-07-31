@@ -8,7 +8,7 @@
   <body>
     <div class="container">
       <h1>Laravel Cookbook Exercises!</h1>
-
+<!-- NAVBAR -->
       <div class="navbar">
         <div class="row clearfix">
           <div class="column fifth nav-btn"><a href="/">Home</a></div>
@@ -22,9 +22,13 @@
       @yield('content')
 
       <div class="footer">
+        <div class="row clearfix">
+          <div class="column fifth nav-btn"><a href="logout">Logout</a></div>        
+        </div>
       </div>
 
     </div>
+  
   </body>
 
 </html>

@@ -116,6 +116,10 @@ Route::post('profile-edit', function() {
   }
 });
 
+// LOGOUT:
+Route::get('logout', function() {
+  return Auth::logout();
+});
 
 //  A SECURED PAGE:
 Route::get('secured', array('before' => 'auth', function()
