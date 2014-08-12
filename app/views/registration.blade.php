@@ -27,7 +27,7 @@
     <?= Form::password('password_confirm') ?>
     <br/>
 
-    <?= Form::labqel('adimn', 'Admin: ') ?>
+    <?= Form::label('adimn', 'Admin: ') ?>
     <?= form::checkbox('admin', 'true', Input::old('admin')) ?>
     <br/>
     <br/>

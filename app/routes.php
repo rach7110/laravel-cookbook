@@ -12,14 +12,7 @@
 */
 
 Route::get('/', function() {
-
-  $data =[];
-
-  Mail::send('emails.welcome', $data, function($message) {
-    $message->to('rachel.loziuk@gmail.com', 'Rachel')
-    ->subject("Test email!");
-  });
-  // return View::make('home');
+  return View::make('home');
 });
 
 // USER REGISTRATION FORM:
@@ -50,6 +43,14 @@ Route::post('registration', array('before' => 'csrf', function(){
   $user->admin = Input::get('admin') ? 1 : 0;
   if($user->save()) {
     Auth::loginUsingId($user->id);
+
+    $data =[];
+
+    Mail::send('emails.welcome', $data, function($message) {
+    $message->to($user->email, 'Rachel')
+    ->subject("Test email!");
+    });
+
     return Redirect::to('profile');
   } else {
     Redirect::to('registration')->withInput();
