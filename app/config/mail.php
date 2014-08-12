@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => regattanetwork
+	'username' => 'regattanetwork',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => gr8danes,
+	'password' => 'gr8danes',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -12,8 +12,14 @@
 */
 
 Route::get('/', function() {
-  return View::make('home');
-	// return View::make('hello');
+
+  $data =[];
+
+  Mail::send('emails.welcome', $data, function($message) {
+    $message->to('rachel.loziuk@gmail.com', 'Rachel')
+    ->subject("Test email!");
+  });
+  // return View::make('home');
 });
 
 // USER REGISTRATION FORM:
