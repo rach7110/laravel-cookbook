@@ -46,7 +46,7 @@ Route::post('registration', array('before' => 'csrf', function(){
 
     $data =[];
 
-    Mail::send('emails.welcome', $data, function($message) {
+    Mail::send('emails.welcome', $data, function($message) use($user)  {
     $message->to($user->email, 'Rachel')
     ->subject("Test email!");
     });
