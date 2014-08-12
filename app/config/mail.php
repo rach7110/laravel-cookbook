@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.sendgrid.net',
+	'host' => 'smtp.gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'rachel@regattanetwork.com', 'name' => 'Test Email'),
+	'from' => array('address' => 'rachel.loziuk@gmail.com', 'name' => 'Test Email'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => 'regattanetwork',
+	'username' => 'rachel.loziuk',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => 'gr8danes',
+	'password' => 'Pass711Word',
 
 	/*
 	|--------------------------------------------------------------------------
